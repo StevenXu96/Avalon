@@ -1,7 +1,9 @@
 package com.example.avalon;
 
 import Characters.*;
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -12,6 +14,7 @@ public class ShowToPerson extends AppCompatActivity {
     ArrayList<String> names;
     ArrayList<Characters.Character> characters;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,5 +24,8 @@ public class ShowToPerson extends AppCompatActivity {
         names = i.getStringArrayListExtra("names");
 
         characters = (new CharacterFactory(names)).construct();
+
+        TextView tv = (TextView) findViewById(R.id.who);
+        tv.setText("Please pass this phone to " + characters.get(0).getName());
     }
 }

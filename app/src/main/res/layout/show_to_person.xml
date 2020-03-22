@@ -7,4 +7,12 @@
         android:layout_height="match_parent"
         tools:context=".ShowToPerson">
 
+    <TextView
+            android:text="Have fun Playing Avalon!"
+            android:layout_width="191dp"
+            android:layout_height="112dp"
+            android:id="@+id/who" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="309dp" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="310dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="110dp" android:layout_marginStart="110dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
