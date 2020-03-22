@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Avalon</string>
+    <string name="welcome_to_avalon">Welcome to Avalon!</string>
+    <string name="enter">ENTER!</string>
+    <string name="how_many_players_in_total">How many Players in total?</string>
+    <string name="How_many_players_in_total">How Many Players in Total?</string>
+    <string name="start_playing">Start Playing!</string>
+    <string name="what_are_the_names_of_the_players_please_enter_one_at_a_time_then_press_load">What are the names of
+        the players? Please enter one at a time, then press LOAD.
+    </string>
+    <string name="load">LOAD</string>
+</resources>
