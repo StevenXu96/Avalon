@@ -1,4 +1,4 @@
-package Character;
+package Characters;
 
 import java.util.ArrayList;
 
@@ -13,7 +13,7 @@ public class Percival extends Character{
     }
 
     public String skill(){
-        return "you are Percival, the 2 names you are going to see is: " + this.merlinMorgana.get(0)
+        return "you are Percival, the 2 names you are going to see are: " + this.merlinMorgana.get(0)
                 + " and " + this.merlinMorgana.get(1) + "! But you don't know who is who.";
     }
 

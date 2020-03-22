@@ -30,24 +30,32 @@ public class EnterName extends AppCompatActivity {
                 final EditText input = findViewById(R.id.editText2);
                 String temp = input.getText().toString();
 
-                if(!names.contains(temp)){
+                if(!names.contains(temp)) {
                     names.add(temp);
                     number -= 1;
 
-                    AlertDialog.Builder builder = new AlertDialog.Builder(EnterName.this);
+                    if (number != 0) {
 
-                    builder.setCancelable(true);
-                    builder.setTitle("Success!");
-                    builder.setMessage(number + " more names to enter.");
+                        AlertDialog.Builder builder = new AlertDialog.Builder(EnterName.this);
 
-                    builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.cancel();
-                        }
-                    });
+                        builder.setCancelable(true);
+                        builder.setTitle("Success!");
+                        builder.setMessage(number + " more names to enter.");
 
-                    builder.show();
+                        builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+
+                        builder.show();
+                    }
+                    else{
+                        Intent intent = new Intent(EnterName.this, ShowToPerson.class);
+                        intent.putExtra("names", names);
+                        startActivity(intent);
+                    }
                 }
                 else{
                     AlertDialog.Builder builder = new AlertDialog.Builder(EnterName.this);

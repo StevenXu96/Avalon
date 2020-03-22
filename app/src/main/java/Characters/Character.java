@@ -1,4 +1,4 @@
-package Character;
+package Characters;
 
 public abstract class Character {
     private String name;

@@ -1,4 +1,4 @@
-package Character;
+package Characters;
 
 public class Civilian extends Character{
 

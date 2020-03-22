@@ -1,6 +1,6 @@
 package Game_Play;
 
-import Character.*;
+import Characters.*;
 
 import java.util.ArrayList;
 
