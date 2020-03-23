@@ -1,6 +1,5 @@
 package com.example.avalon;
 
-import Characters.*;
 import Characters.Character;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
@@ -49,9 +48,14 @@ public class ShowToPerson extends AppCompatActivity {
                         dialog.cancel();
 
                         if(index_person == 1){
-                            Intent intent = new Intent(ShowToPerson.this, firstPage.class);
-                            intent.putExtra("characters", characters);
-                            startActivity(intent);
+                            if (characters.size() == 5) {
+                                Intent intent = new Intent(ShowToPerson.this, FivePlayers.class);
+                                intent.putExtra("characters", characters);
+                                intent.putExtra("success", 0);
+                                intent.putExtra("fail", 0);
+                                intent.putExtra("cap", 0);
+                                startActivity(intent);
+                            }
                         }
                         else{
                             Intent intent = new Intent(ShowToPerson.this, ShowToPerson.class);

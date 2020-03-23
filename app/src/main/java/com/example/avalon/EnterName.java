@@ -11,6 +11,7 @@ import android.widget.EditText;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
+import java.util.Collections;
 
 @SuppressLint("Registered")
 public class EnterName extends AppCompatActivity {
@@ -56,6 +57,7 @@ public class EnterName extends AppCompatActivity {
                     else{
                         Intent intent = new Intent(EnterName.this, ShowToPerson.class);
                         characters = (new CharacterFactory(names)).construct();
+                        Collections.shuffle(characters);
                         intent.putExtra("characters", characters);
                         intent.putExtra("index", names.size());
                         startActivity(intent);

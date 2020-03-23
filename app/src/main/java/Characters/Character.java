@@ -14,6 +14,8 @@ public abstract class Character implements Serializable {
 
     public abstract String skill();
 
+    public abstract boolean check();
+
 
 
 }
