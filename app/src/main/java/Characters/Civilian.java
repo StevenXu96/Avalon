@@ -1,6 +1,8 @@
 package Characters;
 
-public class Civilian extends Character{
+import java.io.Serializable;
+
+public class Civilian extends Character implements Serializable {
 
     private String name;
 

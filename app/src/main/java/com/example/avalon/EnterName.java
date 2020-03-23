@@ -1,5 +1,6 @@
 package com.example.avalon;
 
+import Characters.*;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 public class EnterName extends AppCompatActivity {
 
     int number;
+    ArrayList<Characters.Character> characters;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +55,9 @@ public class EnterName extends AppCompatActivity {
                     }
                     else{
                         Intent intent = new Intent(EnterName.this, ShowToPerson.class);
-                        intent.putExtra("names", names);
+                        characters = (new CharacterFactory(names)).construct();
+                        intent.putExtra("characters", characters);
+                        intent.putExtra("index", names.size());
                         startActivity(intent);
                     }
                 }

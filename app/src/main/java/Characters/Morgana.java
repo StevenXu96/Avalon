@@ -1,8 +1,9 @@
 package Characters;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Morgana extends Character{
+public class Morgana extends Character implements Serializable {
 
     private String name;
     private ArrayList<String> teammates;

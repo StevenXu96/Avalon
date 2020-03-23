@@ -11,8 +11,18 @@
             android:text="Have fun Playing Avalon!"
             android:layout_width="191dp"
             android:layout_height="112dp"
-            android:id="@+id/who" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="309dp" app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="310dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="110dp" android:layout_marginStart="110dp"/>
+            android:id="@+id/who"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="309dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="110dp" android:layout_marginStart="110dp" android:layout_marginEnd="110dp"
+            android:layout_marginRight="110dp" app:layout_constraintEnd_toEndOf="parent"/>
+    <Button
+            android:text="@string/it_s_me_show_me_my_role"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/showSkill"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="511dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="164dp"
+            android:layout_marginStart="164dp" android:layout_marginEnd="159dp" android:layout_marginRight="159dp"
+            app:layout_constraintEnd_toEndOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,9 +1,10 @@
 package Characters;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class CharacterFactory {
+public class CharacterFactory implements Serializable {
 
     private ArrayList<String> player_names;
 

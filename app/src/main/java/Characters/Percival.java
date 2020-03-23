@@ -1,8 +1,9 @@
 package Characters;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Percival extends Character{
+public class Percival extends Character implements Serializable {
 
     private String name;
     private ArrayList<String> merlinMorgana;
