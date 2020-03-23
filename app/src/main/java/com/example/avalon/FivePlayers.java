@@ -22,6 +22,7 @@ public class FivePlayers extends AppCompatActivity {
     Character cap;
     int cap_num;
     private int[] flow = new int[]{2, 3, 2, 3, 3};
+    private int[] accept = new int[]{0, 0, 0, 0, 0};
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -60,36 +61,26 @@ public class FivePlayers extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 int check = 0;
-                int good = 0;
+                final ArrayList<Characters.Character> onMission = new ArrayList<Characters.Character>();
                 if(c1.isChecked()){
                     check += 1;
-                    if(characters.get(0).check()){
-                        good += 1;
-                    }
+                    onMission.add(characters.get(0));
                 }
                 if(c2.isChecked()){
                     check += 1;
-                    if(characters.get(1).check()){
-                        good += 1;
-                    }
+                    onMission.add(characters.get(1));
                 }
                 if(c3.isChecked()){
                     check += 1;
-                    if(characters.get(2).check()){
-                        good += 1;
-                    }
+                    onMission.add(characters.get(2));
                 }
                 if(c4.isChecked()){
                     check += 1;
-                    if(characters.get(3).check()){
-                        good += 1;
-                    }
+                    onMission.add(characters.get(3));
                 }
                 if(c5.isChecked()){
                     check += 1;
-                    if(characters.get(4).check()){
-                        good += 1;
-                    }
+                    onMission.add(characters.get(4));
                 }
                 if(check == flow[success+fail]){
                     AlertDialog.Builder builder = new AlertDialog.Builder(FivePlayers.this);
@@ -98,49 +89,21 @@ public class FivePlayers extends AppCompatActivity {
                     builder.setTitle("Check with Group");
                     builder.setMessage("Is there more than half of the party agreeing to this?");
 
-                    final int finalGood = good;
                     builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            if (finalGood == flow[success+fail]){
-                                AlertDialog.Builder builder = new AlertDialog.Builder(FivePlayers.this);
 
-                                builder.setCancelable(false);
-                                builder.setTitle("SUCCESS");
-                                builder.setMessage("There are " + finalGood + " number of success cards! MISSION SUCCESS");
+                            Intent i = new Intent(FivePlayers.this, Vote.class);
+                            i.putExtra("index", 0);
+                            i.putExtra("onMission", onMission);
+                            i.putExtra("success", success);
+                            i.putExtra("fail", fail);
+                            i.putExtra("cap", cap_num);
+                            i.putExtra("characters", characters);
+                            i.putExtra("accept", accept[success+fail]);
+                            i.putExtra("votes", 0);
+                            startActivity(i);
 
-                                builder.setPositiveButton("GREAT", new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        Intent intent = new Intent(FivePlayers.this, FivePlayers.class);
-                                        intent.putExtra("characters", characters);
-                                        intent.putExtra("success", success + 1);
-                                        intent.putExtra("fail", fail);
-                                        intent.putExtra("cap", cap_num+1);
-                                        startActivity(intent);
-                                    }
-                                });
-                                builder.show();
-
-                            }
-                            else{
-                                AlertDialog.Builder builder = new AlertDialog.Builder(FivePlayers.this);
-
-                                builder.setCancelable(false);
-                                builder.setTitle("FAILED");
-                                builder.setMessage("There are " + finalGood + " number of success cards! MISSION FAILED!");
-
-                                builder.setPositiveButton("Next Round", new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        Intent intent = new Intent(FivePlayers.this, FivePlayers.class);
-                                        intent.putExtra("characters", characters);
-                                        intent.putExtra("success", success);
-                                        intent.putExtra("fail", fail+1);
-                                        intent.putExtra("cap", cap_num+1);
-                                        startActivity(intent);
-                                    }
-                                });
-                                builder.show();
-                            }
                         }
                     });
 
@@ -161,9 +124,11 @@ public class FivePlayers extends AppCompatActivity {
                 else{
                     AlertDialog.Builder builder = new AlertDialog.Builder(FivePlayers.this);
 
-                    builder.setCancelable(false);
+                    builder.setCancelable(true);
                     builder.setTitle("ERROR");
                     builder.setMessage("Please select the correct number of players.");
+
+                    builder.show();
                 }
             };
         });
