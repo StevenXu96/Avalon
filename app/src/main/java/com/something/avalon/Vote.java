@@ -267,32 +267,32 @@ public class Vote extends AppCompatActivity {
                                         if (characters.size() == 5) {
                                             Intent intent = new Intent(Vote.this, FivePlayers.class);
                                             intent.putExtra("characters", characters);
-                                            intent.putExtra("success", success + 1);
-                                            intent.putExtra("fail", fail);
+                                            intent.putExtra("success", success);
+                                            intent.putExtra("fail", fail+ 1);
                                             intent.putExtra("cap", cap_num + 1);
                                             startActivity(intent);
                                         }
                                         else if (characters.size() == 6){
                                             Intent intent = new Intent(Vote.this, SixPlayers.class);
                                             intent.putExtra("characters", characters);
-                                            intent.putExtra("success", success + 1);
-                                            intent.putExtra("fail", fail);
+                                            intent.putExtra("success", success);
+                                            intent.putExtra("fail", fail + 1);
                                             intent.putExtra("cap", cap_num + 1);
                                             startActivity(intent);
                                         }
                                         else if (characters.size() == 7){
                                             Intent intent = new Intent(Vote.this, SevenPlayers.class);
                                             intent.putExtra("characters", characters);
-                                            intent.putExtra("success", success + 1);
-                                            intent.putExtra("fail", fail);
+                                            intent.putExtra("success", success);
+                                            intent.putExtra("fail", fail + 1);
                                             intent.putExtra("cap", cap_num + 1);
                                             startActivity(intent);
                                         }
                                         else if (characters.size() == 8){
                                             Intent intent = new Intent(Vote.this, EightPlayers.class);
                                             intent.putExtra("characters", characters);
-                                            intent.putExtra("success", success + 1);
-                                            intent.putExtra("fail", fail);
+                                            intent.putExtra("success", success);
+                                            intent.putExtra("fail", fail + 1);
                                             intent.putExtra("cap", cap_num + 1);
                                             startActivity(intent);
                                         }
@@ -401,32 +401,32 @@ public class Vote extends AppCompatActivity {
                                         if (characters.size() == 5) {
                                             Intent intent = new Intent(Vote.this, FivePlayers.class);
                                             intent.putExtra("characters", characters);
-                                            intent.putExtra("success", success + 1);
-                                            intent.putExtra("fail", fail);
+                                            intent.putExtra("success", success);
+                                            intent.putExtra("fail", fail + 1);
                                             intent.putExtra("cap", cap_num + 1);
                                             startActivity(intent);
                                         }
                                         else if (characters.size() == 6){
                                             Intent intent = new Intent(Vote.this, SixPlayers.class);
                                             intent.putExtra("characters", characters);
-                                            intent.putExtra("success", success + 1);
-                                            intent.putExtra("fail", fail);
+                                            intent.putExtra("success", success);
+                                            intent.putExtra("fail", fail + 1);
                                             intent.putExtra("cap", cap_num + 1);
                                             startActivity(intent);
                                         }
                                         else if (characters.size() == 7){
                                             Intent intent = new Intent(Vote.this, SevenPlayers.class);
                                             intent.putExtra("characters", characters);
-                                            intent.putExtra("success", success + 1);
-                                            intent.putExtra("fail", fail);
+                                            intent.putExtra("success", success);
+                                            intent.putExtra("fail", fail + 1);
                                             intent.putExtra("cap", cap_num + 1);
                                             startActivity(intent);
                                         }
                                         else if (characters.size() == 8){
                                             Intent intent = new Intent(Vote.this, EightPlayers.class);
                                             intent.putExtra("characters", characters);
-                                            intent.putExtra("success", success + 1);
-                                            intent.putExtra("fail", fail);
+                                            intent.putExtra("success", success);
+                                            intent.putExtra("fail", fail + 1);
                                             intent.putExtra("cap", cap_num + 1);
                                             startActivity(intent);
                                         }
