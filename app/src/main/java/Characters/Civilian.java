@@ -1,5 +1,7 @@
 package Characters;
 
+import android.os.Parcelable;
+
 import java.io.Serializable;
 
 public class Civilian extends Character implements Serializable {
@@ -16,5 +18,9 @@ public class Civilian extends Character implements Serializable {
 
     public boolean check(){
         return true;
+    }
+
+    public boolean merlin(){
+        return false;
     }
 }

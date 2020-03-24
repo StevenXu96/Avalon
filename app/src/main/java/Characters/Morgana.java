@@ -20,4 +20,8 @@ public class Morgana extends Character implements Serializable {
     public boolean check(){
         return false;
     }
+
+    public boolean merlin(){
+        return false;
+    }
 }

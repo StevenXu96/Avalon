@@ -21,4 +21,8 @@ public class Percival extends Character implements Serializable {
     public boolean check(){
         return true;
     }
+
+    public boolean merlin(){
+        return false;
+    }
 }

@@ -13,4 +13,7 @@
     <string name="go_on_a_mission">Go on a Mission!</string>
     <string name="fail">FAIL</string>
     <string name="success">SUCCESS</string>
+    <string name="completely_new_game">Completely New Game</string>
+    <string name="play_again_with_the_same_people">Play Again with the Same People</string>
+    <string name="kill">KILL</string>
 </resources>

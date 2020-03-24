@@ -32,10 +32,12 @@ public class FivePlayers extends AppCompatActivity {
 
         Intent intent = getIntent();
         characters = (ArrayList<Character>) intent.getSerializableExtra("characters");
+
         success = intent.getIntExtra("success", 0);
         fail = intent.getIntExtra("fail", 0);
         cap_num = intent.getIntExtra("cap", 0);
         cap = characters.get(cap_num%(characters.size()));
+
 
         final TextView yes = (TextView) findViewById(R.id.success);
         final TextView no = (TextView) findViewById(R.id.fail);
@@ -103,7 +105,6 @@ public class FivePlayers extends AppCompatActivity {
                             i.putExtra("accept", accept[success+fail]);
                             i.putExtra("votes", 0);
                             startActivity(i);
-
                         }
                     });
 
