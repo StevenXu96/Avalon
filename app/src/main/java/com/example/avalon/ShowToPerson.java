@@ -64,6 +64,22 @@ public class ShowToPerson extends AppCompatActivity {
                                 intent.putExtra("cap", 0);
                                 startActivity(intent);
                             }
+                            else if (characters.size() == 7){
+                                Intent intent = new Intent(ShowToPerson.this, SevenPlayers.class);
+                                intent.putExtra("characters", characters);
+                                intent.putExtra("success", 0);
+                                intent.putExtra("fail", 0);
+                                intent.putExtra("cap", 0);
+                                startActivity(intent);
+                            }
+                            else if (characters.size() == 8){
+                                Intent intent = new Intent(ShowToPerson.this, EightPlayers.class);
+                                intent.putExtra("characters", characters);
+                                intent.putExtra("success", 0);
+                                intent.putExtra("fail", 0);
+                                intent.putExtra("cap", 0);
+                                startActivity(intent);
+                            }
                         }
                         else{
                             Intent intent = new Intent(ShowToPerson.this, ShowToPerson.class);

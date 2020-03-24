@@ -55,7 +55,7 @@ public class EightPlayers extends AppCompatActivity {
         final CheckBox c5 = (CheckBox) findViewById(R.id.checkBox85);
         c5.setText(characters.get(4).getName());
         final CheckBox c6 = (CheckBox) findViewById(R.id.checkBox86);
-        c5.setText(characters.get(5).getName());
+        c6.setText(characters.get(5).getName());
         final CheckBox c7 = (CheckBox) findViewById(R.id.checkBox87);
         c7.setText(characters.get(6).getName());
         final CheckBox c8 = (CheckBox) findViewById(R.id.checkBox88);

@@ -55,7 +55,7 @@ public class SevenPlayers extends AppCompatActivity {
         final CheckBox c5 = (CheckBox) findViewById(R.id.checkBox75);
         c5.setText(characters.get(4).getName());
         final CheckBox c6 = (CheckBox) findViewById(R.id.checkBox76);
-        c5.setText(characters.get(5).getName());
+        c6.setText(characters.get(5).getName());
         final CheckBox c7 = (CheckBox) findViewById(R.id.checkBox77);
         c7.setText(characters.get(6).getName());
 
