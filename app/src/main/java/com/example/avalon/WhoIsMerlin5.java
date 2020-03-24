@@ -47,7 +47,7 @@ public class WhoIsMerlin5 extends AppCompatActivity {
         final RadioButton rb2 = (RadioButton) findViewById(R.id.merlin52);
         final RadioButton rb3 = (RadioButton) findViewById(R.id.merlin53);
         final RadioButton rb4 = (RadioButton) findViewById(R.id.merlin54);
-        final RadioButton rb5 = (RadioButton) findViewById(R.id.merlin54);
+        final RadioButton rb5 = (RadioButton) findViewById(R.id.merlin55);
 
         rb1.setText(possibles.get(0));
         rb2.setText(possibles.get(1));

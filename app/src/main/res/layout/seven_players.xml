@@ -11,11 +11,11 @@
             android:text="TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/success" app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/success"
+            app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="44dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="67dp" android:layout_marginStart="67dp" android:layout_marginEnd="285dp"
-            android:layout_marginRight="285dp" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"/>
+            android:layout_marginLeft="95dp" android:layout_marginStart="95dp" android:layout_marginEnd="257dp"
+            android:layout_marginRight="257dp" app:layout_constraintEnd_toEndOf="parent"/>
     <TextView
             android:text="TextView"
             android:layout_width="wrap_content"
@@ -29,11 +29,11 @@
             android:text="TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/captain" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="128dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="173dp" android:layout_marginStart="173dp" android:layout_marginEnd="179dp"
-            android:layout_marginRight="179dp" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"/>
+            android:id="@+id/captain"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="125dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="121dp" android:layout_marginStart="121dp" android:layout_marginEnd="231dp"
+            android:layout_marginRight="231dp" app:layout_constraintEnd_toEndOf="parent"/>
     <CheckBox
             android:text="CheckBox"
             android:layout_width="wrap_content"

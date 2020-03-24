@@ -55,7 +55,7 @@ public class SixPlayers extends AppCompatActivity {
         final CheckBox c5 = (CheckBox) findViewById(R.id.checkBox65);
         c5.setText(characters.get(4).getName());
         final CheckBox c6 = (CheckBox) findViewById(R.id.checkBox66);
-        c5.setText(characters.get(5).getName());
+        c6.setText(characters.get(5).getName());
 
         yes.setText("Success: " + success + " times");
         no.setText("Fail: " + fail + " times");

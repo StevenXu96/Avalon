@@ -31,9 +31,40 @@ public class EnterName extends AppCompatActivity {
         load.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v2) {
                 final EditText input = findViewById(R.id.editText2);
-                String temp = input.getText().toString();
+                String temp = (input.getText().toString()).trim();
+                if (temp.equals("")){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(EnterName.this);
 
-                if(!names.contains(temp)) {
+                    builder.setCancelable(true);
+                    builder.setTitle("Failed");
+                    builder.setMessage("Please Enter a real name.");
+
+                    builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+                    builder.show();
+                }
+
+                else if (temp.length() > 15){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(EnterName.this);
+
+                    builder.setCancelable(true);
+                    builder.setTitle("Failed");
+                    builder.setMessage("Please Enter a shorter name. (less than 15 characters)");
+
+                    builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+                    builder.show();
+                }
+
+                else if(!names.contains(temp)) {
                     names.add(temp);
                     number -= 1;
 
