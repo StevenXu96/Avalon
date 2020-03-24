@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class Vote extends AppCompatActivity {
 
-    ArrayList<Characters.Character> characters;
+    ArrayList<Characters.Character> characters_temp;
     ArrayList<Characters.Character> onMission;
     int success;
     int fail;
@@ -31,7 +31,8 @@ public class Vote extends AppCompatActivity {
         setContentView(R.layout.vote_screen);
 
         Intent intent = getIntent();
-        characters = (ArrayList<Character>) intent.getSerializableExtra("characters");
+        characters_temp = (ArrayList<Character>) intent.getSerializableExtra("characters");
+        final ArrayList<Characters.Character> characters = characters_temp;
         success = intent.getIntExtra("success", 0);
         fail = intent.getIntExtra("fail", 0);
         cap_num = intent.getIntExtra("cap", 0);
@@ -49,7 +50,7 @@ public class Vote extends AppCompatActivity {
             public void onClick(View v) {
                 votes += 1;
                 if (index == onMission.size()-1 ){
-                    if (votes == onMission.size()-accept){
+                    if (votes >= onMission.size()-accept){
                         AlertDialog.Builder builder = new AlertDialog.Builder(Vote.this);
 
                         builder.setCancelable(false);
@@ -58,12 +59,19 @@ public class Vote extends AppCompatActivity {
 
                         builder.setPositiveButton("GREAT", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-                                Intent intent = new Intent(Vote.this, FivePlayers.class);
-                                intent.putExtra("characters", characters);
-                                intent.putExtra("success", success + 1);
-                                intent.putExtra("fail", fail);
-                                intent.putExtra("cap", cap_num+1);
-                                startActivity(intent);
+                                if(success < 2) {
+                                    Intent intent = new Intent(Vote.this, FivePlayers.class);
+                                    intent.putExtra("characters", characters);
+                                    intent.putExtra("success", success + 1);
+                                    intent.putExtra("fail", fail);
+                                    intent.putExtra("cap", cap_num + 1);
+                                    startActivity(intent);
+                                }
+                                else{
+                                    Intent next = new Intent(Vote.this, WhoIsMerlin3.class);
+                                    next.putExtra("test", characters);
+                                    startActivity(next);
+                                }
                             }
                         });
                         builder.show();
@@ -78,12 +86,19 @@ public class Vote extends AppCompatActivity {
 
                         builder.setPositiveButton("Next Round", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-                                Intent intent = new Intent(Vote.this, FivePlayers.class);
-                                intent.putExtra("characters", characters);
-                                intent.putExtra("success", success);
-                                intent.putExtra("fail", fail+1);
-                                intent.putExtra("cap", cap_num+1);
-                                startActivity(intent);
+                                if(fail < 2) {
+                                    Intent intent = new Intent(Vote.this, FivePlayers.class);
+                                    intent.putExtra("characters", characters);
+                                    intent.putExtra("success", success);
+                                    intent.putExtra("fail", fail + 1);
+                                    intent.putExtra("cap", cap_num + 1);
+                                    startActivity(intent);
+                                }
+                                else{
+                                    Intent i = new Intent(Vote.this, GameOver.class);
+                                    i.putExtra("test", characters);
+                                    startActivity(i);
+                                }
                             }
                         });
                         builder.show();
@@ -105,18 +120,12 @@ public class Vote extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
-
         bad.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (onMission.get(index).check()){
                     votes += 1;
                     if (index == onMission.size()-1 ){
-                        if (votes == onMission.size()-accept){
+                        if (votes >= onMission.size()-accept){
                             AlertDialog.Builder builder = new AlertDialog.Builder(Vote.this);
 
                             builder.setCancelable(false);
@@ -125,12 +134,19 @@ public class Vote extends AppCompatActivity {
 
                             builder.setPositiveButton("GREAT", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
-                                    Intent intent = new Intent(Vote.this, FivePlayers.class);
-                                    intent.putExtra("characters", characters);
-                                    intent.putExtra("success", success + 1);
-                                    intent.putExtra("fail", fail);
-                                    intent.putExtra("cap", cap_num+1);
-                                    startActivity(intent);
+                                    if(success < 2) {
+                                        Intent intent = new Intent(Vote.this, FivePlayers.class);
+                                        intent.putExtra("characters", characters);
+                                        intent.putExtra("success", success + 1);
+                                        intent.putExtra("fail", fail);
+                                        intent.putExtra("cap", cap_num + 1);
+                                        startActivity(intent);
+                                    }
+                                    else{
+                                        Intent next = new Intent(Vote.this, WhoIsMerlin3.class);
+                                        next.putExtra("test", characters);
+                                        startActivity(next);
+                                    }
                                 }
                             });
                             builder.show();
@@ -145,12 +161,19 @@ public class Vote extends AppCompatActivity {
 
                             builder.setPositiveButton("Next Round", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
-                                    Intent intent = new Intent(Vote.this, FivePlayers.class);
-                                    intent.putExtra("characters", characters);
-                                    intent.putExtra("success", success);
-                                    intent.putExtra("fail", fail+1);
-                                    intent.putExtra("cap", cap_num+1);
-                                    startActivity(intent);
+                                    if (fail < 2) {
+                                        Intent intent = new Intent(Vote.this, FivePlayers.class);
+                                        intent.putExtra("characters", characters);
+                                        intent.putExtra("success", success);
+                                        intent.putExtra("fail", fail + 1);
+                                        intent.putExtra("cap", cap_num + 1);
+                                        startActivity(intent);
+                                    }
+                                    else{
+                                        Intent i = new Intent(Vote.this, GameOver.class);
+                                        i.putExtra("test", characters);
+                                        startActivity(i);
+                                    }
                                 }
                             });
                             builder.show();
@@ -172,7 +195,7 @@ public class Vote extends AppCompatActivity {
                 }
                 else{
                     if (index == onMission.size()-1 ){
-                        if (votes == onMission.size()-accept){
+                        if (votes >= onMission.size()-accept){
                             AlertDialog.Builder builder = new AlertDialog.Builder(Vote.this);
 
                             builder.setCancelable(false);
@@ -181,12 +204,19 @@ public class Vote extends AppCompatActivity {
 
                             builder.setPositiveButton("GREAT", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
-                                    Intent intent = new Intent(Vote.this, FivePlayers.class);
-                                    intent.putExtra("characters", characters);
-                                    intent.putExtra("success", success + 1);
-                                    intent.putExtra("fail", fail);
-                                    intent.putExtra("cap", cap_num+1);
-                                    startActivity(intent);
+                                    if (success < 2) {
+                                        Intent intent = new Intent(Vote.this, FivePlayers.class);
+                                        intent.putExtra("characters", characters);
+                                        intent.putExtra("success", success + 1);
+                                        intent.putExtra("fail", fail);
+                                        intent.putExtra("cap", cap_num + 1);
+                                        startActivity(intent);
+                                    }
+                                    else{
+                                        Intent next = new Intent(Vote.this, WhoIsMerlin3.class);
+                                        next.putExtra("test", characters);
+                                        startActivity(next);
+                                    }
                                 }
                             });
                             builder.show();
@@ -201,12 +231,19 @@ public class Vote extends AppCompatActivity {
 
                             builder.setPositiveButton("Next Round", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
-                                    Intent intent = new Intent(Vote.this, FivePlayers.class);
-                                    intent.putExtra("characters", characters);
-                                    intent.putExtra("success", success);
-                                    intent.putExtra("fail", fail+1);
-                                    intent.putExtra("cap", cap_num+1);
-                                    startActivity(intent);
+                                    if(fail < 2) {
+                                        Intent intent = new Intent(Vote.this, FivePlayers.class);
+                                        intent.putExtra("characters", characters);
+                                        intent.putExtra("success", success);
+                                        intent.putExtra("fail", fail + 1);
+                                        intent.putExtra("cap", cap_num + 1);
+                                        startActivity(intent);
+                                    }
+                                    else{
+                                        Intent i = new Intent(Vote.this, GameOver.class);
+                                        i.putExtra("test", characters);
+                                        startActivity(i);
+                                    }
                                 }
                             });
                             builder.show();

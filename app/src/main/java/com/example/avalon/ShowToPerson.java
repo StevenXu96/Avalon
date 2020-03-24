@@ -38,7 +38,7 @@ public class ShowToPerson extends AppCompatActivity {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(ShowToPerson.this);
 
-                builder.setCancelable(true);
+                builder.setCancelable(false);
                 builder.setTitle("YOUR ROLE");
                 builder.setMessage(c.skill());
 
