@@ -60,7 +60,58 @@ public class CharacterFactory implements Serializable {
                 people.add(p66);
                 break;
 
-            default:
+            case 7:
+                ArrayList<String> bad7guys = new ArrayList<>();
+                ArrayList<String> merlin7Morgana = new ArrayList<>();
+                bad7guys.add(this.player_names.get(3));
+                bad7guys.add(this.player_names.get(4));
+                bad7guys.add(this.player_names.get(6));
+                merlin7Morgana.add(this.player_names.get(2));
+                merlin7Morgana.add(this.player_names.get(4));
+                Collections.shuffle(bad7guys);
+                Collections.shuffle(merlin7Morgana);
+                Character p71 = new Civilian(this.player_names.get(0));
+                Character p72 = new Percival(this.player_names.get(1), merlin7Morgana);
+                Character p73 = new Merlin(this.player_names.get(2), bad7guys);
+                Character p74 = new Assassin(this.player_names.get(3), bad7guys);
+                Character p75 = new Morgana(this.player_names.get(4), bad7guys);
+                Character p76 = new Civilian(this.player_names.get(5));
+                Character p77 = new Evil(this.player_names.get(6), bad7guys);
+                people.add(p71);
+                people.add(p72);
+                people.add(p73);
+                people.add(p74);
+                people.add(p75);
+                people.add(p76);
+                people.add(p77);
+                break;
+
+            case 8:
+                ArrayList<String> bad8guys = new ArrayList<>();
+                ArrayList<String> merlin8Morgana = new ArrayList<>();
+                bad8guys.add(this.player_names.get(3));
+                bad8guys.add(this.player_names.get(4));
+                bad8guys.add(this.player_names.get(6));
+                merlin8Morgana.add(this.player_names.get(2));
+                merlin8Morgana.add(this.player_names.get(4));
+                Collections.shuffle(bad8guys);
+                Collections.shuffle(merlin8Morgana);
+                Character p81 = new Civilian(this.player_names.get(0));
+                Character p82 = new Percival(this.player_names.get(1), merlin8Morgana);
+                Character p83 = new Merlin(this.player_names.get(2), bad8guys);
+                Character p84 = new Assassin(this.player_names.get(3), bad8guys);
+                Character p85 = new Morgana(this.player_names.get(4), bad8guys);
+                Character p86 = new Civilian(this.player_names.get(5));
+                Character p87 = new Evil(this.player_names.get(6), bad8guys);
+                Character p88 = new Civilian(this.player_names.get(7));
+                people.add(p81);
+                people.add(p82);
+                people.add(p83);
+                people.add(p84);
+                people.add(p85);
+                people.add(p86);
+                people.add(p87);
+                people.add(p88);
                 break;
         }
         return people;

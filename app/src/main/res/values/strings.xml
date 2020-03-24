@@ -16,4 +16,8 @@
     <string name="completely_new_game">Completely New Game</string>
     <string name="play_again_with_the_same_people">Play Again with the Same People</string>
     <string name="kill">KILL</string>
+    <string name="_5_players">5 Players</string>
+    <string name="_6_players">6 Players</string>
+    <string name="_7_players">7 Players</string>
+    <string name="_8_players">8 Players</string>
 </resources>
