@@ -23,6 +23,7 @@ public class SevenPlayers extends AppCompatActivity {
     int cap_num;
     private int[] flow = new int[]{2, 3, 3, 4, 4};
     private int[] accept = new int[]{0, 0, 0, 1, 0};
+    int change;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -37,7 +38,7 @@ public class SevenPlayers extends AppCompatActivity {
         fail = intent.getIntExtra("fail", 0);
         cap_num = intent.getIntExtra("cap", 0);
         cap = characters.get(cap_num%(characters.size()));
-
+        change = intent.getIntExtra("change", 0);
 
         final TextView yes = (TextView) findViewById(R.id.success);
         final TextView no = (TextView) findViewById(R.id.fail);
@@ -101,7 +102,7 @@ public class SevenPlayers extends AppCompatActivity {
 
                     builder.setCancelable(false);
                     builder.setTitle("Check with Group");
-                    builder.setMessage("Is there more than half of the party agreeing to this?");
+                    builder.setMessage("Is there more than half of the party agreeing to this? Remember: You have already changed captain " + change + " times, once you change it for 5 times, this mission will automatically fail.");
 
                     builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
                         @Override
@@ -123,12 +124,44 @@ public class SevenPlayers extends AppCompatActivity {
                     builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            Intent intent = new Intent(SevenPlayers.this, SevenPlayers.class);
-                            intent.putExtra("characters", characters);
-                            intent.putExtra("success", success);
-                            intent.putExtra("fail", fail);
-                            intent.putExtra("cap", cap_num+1);
-                            startActivity(intent);
+                            change += 1;
+                            if (change != 5) {
+                                Intent intent = new Intent(SevenPlayers.this, SevenPlayers.class);
+                                intent.putExtra("characters", characters);
+                                intent.putExtra("success", success);
+                                intent.putExtra("fail", fail);
+                                intent.putExtra("cap", cap_num + 1);
+                                intent.putExtra("change", change);
+                                startActivity(intent);
+                            }
+                            else{
+                                if (fail< 2) {
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(SevenPlayers.this);
+
+                                    builder.setCancelable(false);
+                                    builder.setTitle("MISSION FAILED");
+                                    builder.setMessage("You have changed captain 5 times! MISSION FAILED!");
+
+                                    builder.setNegativeButton("NEXT ROUND", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            Intent intent = new Intent(SevenPlayers.this, SevenPlayers.class);
+                                            intent.putExtra("characters", characters);
+                                            intent.putExtra("success", success);
+                                            intent.putExtra("fail", fail + 1);
+                                            intent.putExtra("cap", cap_num + 1);
+                                            startActivity(intent);
+                                        }
+                                    });
+
+                                    builder.show();
+                                }
+                                else{
+                                    Intent i = new Intent(SevenPlayers.this, GameOver.class);
+                                    i.putExtra("test", characters);
+                                    startActivity(i);
+                                }
+                            }
                         }
                     });
 
