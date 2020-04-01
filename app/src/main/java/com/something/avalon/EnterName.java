@@ -68,7 +68,7 @@ public class EnterName extends AppCompatActivity {
                     names.add(temp);
                     number -= 1;
 
-                    if (number != 0) {
+                    if (number > 0) {
 
                         AlertDialog.Builder builder = new AlertDialog.Builder(EnterName.this);
 
@@ -86,13 +86,30 @@ public class EnterName extends AppCompatActivity {
 
                         builder.show();
                     }
-                    else{
+                    else if (number == 0){
                         Intent intent = new Intent(EnterName.this, ShowToPerson.class);
                         characters = (new CharacterFactory(names)).construct();
                         Collections.shuffle(characters);
                         intent.putExtra("characters", characters);
                         intent.putExtra("index", names.size());
                         startActivity(intent);
+                    }
+                    else {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(EnterName.this);
+
+                        builder.setCancelable(true);
+                        builder.setTitle("Error");
+                        builder.setMessage("Please don't go back when loading names. Please start over the game.");
+
+                        builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                                startActivity(new Intent(EnterName.this, howManyPlayers.class));
+                            }
+                        });
+
+                        builder.show();
                     }
                 }
                 else{
